@@ -1,7 +1,7 @@
 /* GLOBAL RULES */
 *{box-sizing: border-box; padding: 0; margin: 0;}
 .container{
-    width: 1117px;
+    width: 80%;
     margin: 0 auto;
 }
 body{
@@ -10,7 +10,7 @@ body{
 /* header */
 
 .header{
-    height: 190px;
+    height: 130px;
     width: 100%;
     background-color: #fb923c;
     padding-top: 50px;
@@ -24,24 +24,35 @@ h2{
     width: 100%;
     background-color: white;
     border-radius: 5px;
-    margin-top: -4.875rem;
+    margin-top: -2.875rem;
     padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: -1px 10px 15px -3px rgba(0,0,0,0.27);
 }
 .main .product{
     padding: 0 10px;
     display: flex;
     width: 100%;
     height: 100%;
-
+    justify-content: space-between;
 }
+
 .main .product .img{
     width: 45%;
+    height: 90%;
+    /* background-color: #fb923c; */
 }
+
 .main .product .img img{
     width: 100%;
+    height: 100%;
+    
 }
+
 .main .product .info{
     margin-left: 5%;
+    width: 45%;
+    height: 100%;
 
 }
 .main .product .info .price{
@@ -51,7 +62,7 @@ h2{
 }
 input{
     height: 30px;
-    width: 300px;
+    width: 100%;
     margin-top: 5px;
     background-color: #eee;
     border: 0;
@@ -80,4 +91,79 @@ input{
     border: 0;
     border-radius: 5px;
     padding: 5px 15px;
+    width: 100%;
+}
+
+@media (max-width: 676px){
+    body{
+        max-width:100vw;
+        min-height: 100vh;
+        
+    }
+    .header{
+        /* background-color: green; */
+        min-width: 100%;
+        height:60px;
+        padding: 10px;
+    }
+    .container{
+        width: 100%;
+        margin: 0 ;
+    }
+    h2{
+        width: 90%;
+        margin: auto;
+    }
+    /* .main .product{
+        background-color: red;
+    } */
+    .main .product .img{
+        margin-right: 0;
+        width:90%;
+        margin: auto;
+        /* background-color: blue; */
+        margin-bottom: 20px;
+        /* height:300px; */
+        
+    }
+    .main .product{
+        flex-direction: column;
+    }
+    .main .product .info {
+        margin-left: 0;
+        width:90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .main .product .info .price{
+        width: 90%;
+        margin: auto;
+    }
+    .main .product .info div{
+        /* background-color: yellow; */
+        display: flex;flex-direction: column;
+    }
+    .main .product .info div p{
+        margin-left:5%;
+    }
+    .main .product .info div input, textarea{
+        width: 90%;
+        margin: auto;
+        
+    }
+    .main .product .img img{
+        height: 100%;
+        /* width:100%; */
+    }
+    .main{
+        margin-top: 0;
+        padding: 0
+    }
+}
+@media(max-width: 900px){
+    .container{
+        width: 98%;
+    }
+
 }

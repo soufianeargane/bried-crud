@@ -26,7 +26,7 @@ if (!empty($_SESSION["id"])) {
     </style>
 </head>
 
-<body class="bg-slate-200">
+<body>
 
     <nav class="bg-white  border-gray-200 px-2 sm:px-4  rounded dark:bg-gray-900">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
@@ -93,7 +93,7 @@ if (!empty($_SESSION["id"])) {
     </nav>
     <!-- SECTION -->
     <section class="container mx-auto">
-        <div class="bg-black p-4 flex align-center justify-between">
+        <div class="bg-orange-500 p-4 flex align-center justify-between">
             <div>
                 <div class=" relative ">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -111,8 +111,30 @@ if (!empty($_SESSION["id"])) {
             </button>
         </div>
     </section>
+    <div class="container p-2 bg-black  flex mx-auto">
+        <div class="bg-blue-300 p-2 flex mr-2 items-center">
+            <div class="p-2">
+                <h3 class="italic ">Total users</h3>
+                <p class="text-2xl">15</p>
+            </div>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+            </span>
+        </div>
+        <div class="bg-blue-300 p-2  flex items-center">
+            <div class="p-2">
+                <h3>Total users</h3>
+                <p class="text-2xl">15</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-20  h-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+        </div>
+    </div>
     <?php if (isset($_SESSION['product'])) : ?>
-        <div class="container mx-auto bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+        <div class="container mx-auto bg-green-100 border mt-3 border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Nice!</strong>
             <span class="block sm:inline">
 
@@ -137,8 +159,8 @@ if (!empty($_SESSION["id"])) {
                     <img class=' h-28 rounded-t-lg mx-auto' src='img/{$row['image']}' alt=''>
                 </div>
                 <div class='p-5'>
-                    <a href='#'>
-                        <h5 class='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>{$row['name']}</h5>
+                    <a href='product.php?view_id={$row['id']}'>
+                        <h5 class='mb-2 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>{$row['name']}</h5>
                     </a>
                     <p title ='{$row['details']}' class='mb-3 max-w-sm font-normal text-gray-700 dark:text-gray-400'>" . substr($row['details'], 0, 40) . "</p>
                     <div class='inline-flex rounded-md shadow-sm' role='group'>

@@ -26,7 +26,7 @@ $row = mysqli_fetch_assoc($data);
         </div>
     </div>
     <main>
-        <div class="container ">
+        <div class="container">
             <div class="main">
                 <div class="product">
                     <div class="img">
@@ -44,7 +44,7 @@ $row = mysqli_fetch_assoc($data);
                         </div>
                         <div class="details">
                             <p class="p">Details</p>
-                            <textarea disabled name="" id="" cols="60" rows="6"><?php echo $row['details'] ?></textarea>
+                            <textarea disabled name="" id="" cols="" rows="6"><?php echo $row['details'] ?></textarea>
                         </div>
                     </div>
                 </div>
