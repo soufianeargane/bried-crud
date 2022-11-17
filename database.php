@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost","root","","brief");
+$conn = mysqli_connect("localhost", "root", "", "brief");
 if (!$conn) {
-    echo"shit";
+    echo "something is wrong";
 }
