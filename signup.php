@@ -7,7 +7,7 @@ if (!empty($_SESSION["id"])) {
 if (isset($_POST["submit"])) {
     # code...
     $name = $_POST["name"];
-    $email = $_POST["email"];
+    $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
     $used = mysqli_query($conn, "SELECT * FROM tb_user WHERE email = '$email'");
@@ -167,7 +167,7 @@ if (isset($_POST["submit"])) {
             }
             /////// Validation of Email Input/////
             let email_valid = false
-            let reg_exp = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            let reg_exp = /^[^ ]+@[a-z]+\.[a-z]{2,3}$/;
             if (email.value.match(reg_exp)) {
                 email_valid = true
             }
