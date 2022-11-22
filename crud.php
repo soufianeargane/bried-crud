@@ -24,7 +24,6 @@ function saveTask()
     $target = "img/" . $basename;
     // data from modal
     $name = $_POST['name'];
-    // $name = filter_var($name, FILTER_SANITIZE_STRING);
     $price = $_POST['price'];
     $category = $_POST['category'];
     $quantity = $_POST['quantity'];
