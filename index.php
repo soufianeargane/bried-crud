@@ -64,7 +64,7 @@ if (!empty($_SESSION["id"])) {
                     </ul>
                 </div>
                 <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
+                    <!-- <span class="sr-only">Open main menu</span> -->
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
                     </svg>
@@ -102,7 +102,7 @@ if (!empty($_SESSION["id"])) {
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
-                    <input type="text" id="search-navbar" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+                    <input type="text" id="search-navbar" onkeyup="search()" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
                 </div>
             </div>
 
@@ -169,7 +169,7 @@ if (!empty($_SESSION["id"])) {
             echo "
             <div id='{$row['id']}' data-name='{$row['name']}' data-price='{$row['price']}' data-category='{$row['category_id']}' data-quantity='{$row['quantity']}' data-details='{$row['details']}' data-image='{$row['image']}' >
             </div>
-            <div class='xs:w-full mx-auto md:mx-0 sm:w-1/2 lg:w-1/4   bg-white mb-2 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
+            <div class='xs:w-full mx-auto md:mx-0 sm:w-1/2 lg:w-1/4 for-search-use  bg-white mb-2 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
                 <div class=''>
                     <img class=' h-28 rounded-t-lg mx-auto' src='img/{$row['image']}' alt=''>
                 </div>
@@ -302,11 +302,24 @@ if (!empty($_SESSION["id"])) {
 
     </main>
     <script>
-        // function update(id) {
+        function search() {
+            var filter = document.getElementById('search-navbar').value.toUpperCase();
+            var item = document.querySelectorAll('.for-search-use');
+            let l = document.getElementsByTagName('h5');
+            console.log(l)
 
-        //     let name = document.getElementById(id).getAttribute("data-name");
-        //     document.getElementById("product-name").value = name;
-        // }
+            for (let i = 0; i < l.length; i++) {
+                let a = l[i];
+                let value = a.innerHTML || a.innerText || a.innerContent;
+                console.log(value)
+                if (value.toUpperCase().indexOf(filter) > -1) {
+                    item[i].style.display = "";
+                } else {
+                    item[i].style.display = "none";
+
+                }
+            }
+        }
     </script>
     <script src="main.js"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
